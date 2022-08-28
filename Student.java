@@ -102,8 +102,22 @@ public class Student implements ActionListener {
          
          @Override
          public void actionPerformed(ActionEvent action) {
-                
+                  if (action.getSource() == button1) {
+                           text1.setText(" ");
+                           text2.setText(" ");
+                           box.setSelectedItem(" ");
+                           text3.setText(" ");
+                           text4.setText(" ");
+                           text5.setText(" ");
+                           text6.setText(" ");
+                  }
+                  
+                  if (action.getSource() == button3) {
+                           System.exit(1);
+                  }
+                  
                   if(action.getSource() == button2) {
+         
                            try {
                                     Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:1527/Student","root","root");
                                     PreparedStatement statement = connection.prepareStatement("instert into student values(?,?,?,?,?,?,?)");
@@ -127,20 +141,6 @@ public class Student implements ActionListener {
                            catch(SQLException e1) {
                                     e1.printStackTrace();
                            }
-                  }
-                  
-                  if (action.getSource() == button1) {
-                           text1.setText(" ");
-                           text2.setText(" ");
-                           box.setSelectedItem(" ");
-                           text3.setText(" ");
-                           text4.setText(" ");
-                           text5.setText(" ");
-                           text6.setText(" ");
-                  }
-                  
-                  if (action.getSource() == button3) {
-                           System.exit(1);
                   }
          }
 }

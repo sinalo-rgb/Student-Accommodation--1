@@ -1,6 +1,6 @@
 
 /**
- * @author Sinalo
+ * @author Sinalo Ngolozana (217211151)
  */
 
 package za.ac.cput.student_platform;
@@ -77,17 +77,13 @@ public class Login extends JFrame implements ActionListener {
                   if (action.getSource() == box) {
                            if(box.isSelected()) {
                                     text2.setEchoChar((char)0);
-                           }
-                           else {
                                     text2.setEchoChar('*');
                            }
                   }
-                  
                   if (action.getSource() == reset) {
-                           text1.setText(" ");
-                           text2.setText(" ");
+                           text1.setText(null);
+                           text2.setText(null);
                   }
-                  
                   if (action.getSource() == login) {
                            String username;
                            String password;
@@ -102,9 +98,11 @@ public class Login extends JFrame implements ActionListener {
                            }
                            else {
                                     JOptionPane.showMessageDialog(this, "Your Username/Password Is Incorrect, Please Try Again!");
+                                    this.dispose();
+                                    Student student = new Student();
+                                    student.frame.setVisible(true);
                            }
                   }
-                  
                   if (action.getSource() == exit) {
                            System.exit(1);
                   }
